@@ -11,7 +11,6 @@ import ProductModal from '../components/ProductModal';
 import queryString from 'query-string';
 
 export default function CatalogPage() {
-    // parse initial query from URL
     const initialQuery = useMemo(() => queryString.parse(window.location.search, { parseNumbers: true }), []);
     const { filtered, loading, error, categories, priceBounds, state, actions } = useProducts(initialQuery);
 

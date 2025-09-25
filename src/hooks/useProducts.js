@@ -17,7 +17,6 @@ export default function useProducts(initialQuery = {}) {
   );
   const [sort, setSort] = useState(initialQuery.sort || "default");
 
-  // fetch products once
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
@@ -40,7 +39,6 @@ export default function useProducts(initialQuery = {}) {
     };
   }, []);
 
-  // compute categories and min/max price
   const categories = useMemo(() => {
     const set = new Set(products.map((p) => p.category));
     return ["all", ...Array.from(set)];
@@ -52,7 +50,6 @@ export default function useProducts(initialQuery = {}) {
     return [Math.floor(Math.min(...prices)), Math.ceil(Math.max(...prices))];
   }, [products]);
 
-  // filtered list computed
   const filtered = useMemo(() => {
     let list = products.slice();
 
@@ -83,7 +80,6 @@ export default function useProducts(initialQuery = {}) {
     return list;
   }, [products, category, search, priceRange, sort]);
 
-  // sync state to URL (query string)
   useEffect(() => {
     const qs = queryString.stringify(
       {

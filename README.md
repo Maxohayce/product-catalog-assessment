@@ -50,3 +50,16 @@ Users can **browse, search, filter, and sort** products, with additional feature
 2. yarn install
 
 3. yarn dev
+
+## Assumptions
+
+1. Fake Store API provides a small dataset (20 products) – client-side filtering is acceptable.
+2. Cart persistence only requires localStorage (no backend).
+3. Filters and sort state are stored in the URL query string for refresh persistence.
+4. Accessibility is important: semantic HTML, alt attributes, aria-labels are included.
+
+## Time Spent
+
+plus or minus 14hrs including planning, development and documentation.
+
+## [Live Demo Link](https://product-catalog-harmony.netlify.app/)
